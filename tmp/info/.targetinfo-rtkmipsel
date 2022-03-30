@@ -1,0 +1,50 @@
+Source-Makefile: target/linux/rtkmipsel/Makefile
+Target: rtkmipsel
+Target-Board: rtkmipsel
+Target-Name: Realtek mipsel SOC
+Target-Arch: mipsel
+Target-Arch-Packages: mipsel_mips32
+Target-Features: squashfs usb
+Target-Depends: 
+Target-Optimization: -Os -pipe -mno-branch-likely -mips32 -mtune=mips32
+CPU-Type: mips32
+Linux-Version: 3.18
+Linux-Release: 1
+Linux-Kernel-Arch: mips
+Target-Description:
+	Build firmware images for Realtek based boards
+@@
+Default-Packages: base-files libc libgcc busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd urandom-seed urngd dnsmasq iptables ip6tables ppp ppp-mod-pppoe firewall odhcpd-ipv6only odhcp6c kmod-ipt-offload 
+Target: rtkmipsel/rtl8197f
+Target-Board: rtkmipsel
+Target-Name: 8devices rtk8197fs based boards
+Target-Arch: mipsel
+Target-Arch-Packages: mipsel_24kc
+Target-Features: gpio mips16 pci squashfs usb
+Target-Depends: 
+Target-Optimization: -Os -pipe -mno-branch-likely -mips32r2 -mtune=24kc
+CPU-Type: 24kc
+Linux-Version: 3.18
+Linux-Release: 1
+Linux-Kernel-Arch: mips
+Target-Description:
+	Build firmware images for Realtek based boards
+@@
+Default-Packages: base-files libc libgcc busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd urandom-seed urngd  dnsmasq iptables ip6tables ppp ppp-mod-pppoe firewall odhcpd-ipv6only odhcp6c kmod-ipt-offload 
+Target-Profile: kinkan
+Target-Profile-Priority: 1
+Target-Profile-Name: Kinkan Profile
+Target-Profile-Packages: -odhcpd-ipv6only -wpad-mini hostapd-common iw iwinfo kmod-button-hotplug kmod-cfg80211 kmod-fs-vfat kmod-gpio-button-hotplug kmod-input-core kmod-input-evdev kmod-input-gpio-keys kmod-ledtrig-netdev kmod-mac80211 kmod-mmc kmod-rtk-sdmmc kmod-rtl8192cd kmod-scsi-core kmod-usb-core kmod-usb-ehci kmod-usb-ohci kmod-usb-storage kmod-usb2 rpcd rpcd-mod-rrdns rtk-mux-ctl wireless-regdb wireless-tools wpad  iwinfo
+Target-Profile-Description:
+	Default package set compatible with 8devices Kinkan devboard
+@@
+
+Target-Profile: komikan
+Target-Profile-Priority: 1
+Target-Profile-Name: Komikan Profile
+Target-Profile-Packages: -odhcpd-ipv6only -wpad-mini hostapd-common iw iwinfo kmod-button-hotplug kmod-cfg80211 kmod-fs-vfat kmod-gpio-button-hotplug kmod-input-core kmod-input-evdev kmod-input-gpio-keys kmod-ledtrig-netdev kmod-mac80211 kmod-mmc kmod-rtk-sdmmc kmod-rtl8192cd kmod-scsi-core kmod-usb-core kmod-usb-ehci kmod-usb-ohci kmod-usb-storage kmod-usb2 rpcd rpcd-mod-rrdns rtk_hciattach wireless-regdb wireless-tools wpad  iwinfo
+Target-Profile-Description:
+	Default package set compatible with 8devices Komikan devboard
+@@
+
+
